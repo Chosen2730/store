@@ -1,0 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+h4 {
+  font-size: 1rem;
+}
+h5 {
+  font-size: 0.75rem;
+}
+/* LOGIN SECTION */
+#login {
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    url("./images/back.avif");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.login_header,
+.form h5 {
+  text-align: center;
+}
+.login_header {
+  margin: 2rem 0;
+}
+.form {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  width: 50%;
+  padding: 2%;
+}
+form label,
+input {
+  display: block;
+  margin: 2% 0;
+  width: 100%;
+  padding: 1% 0;
+  border: none;
+  font-size: 1rem;
+}
+.login_input {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 2%;
+  border: 2px solid #f2f2f221;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+.submit_login {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 1rem 0;
+  font-weight: 700;
+  color: #fff;
+}
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.left {
+  text-align: center;
+  padding: 5% 2%;
+}
