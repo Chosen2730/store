@@ -67,7 +67,7 @@ form label {
 }
 .login_input {
   background-color: rgba(0, 0, 0, 0.9);
-  padding: 2%;
+  padding: 1rem;
   border: 2px solid #f2f2f221;
   margin-bottom: 1.5rem;
   color: #fff;
@@ -84,6 +84,9 @@ form label {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+.loading img {
+  width: 40%;
 }
 .left {
   text-align: center;
