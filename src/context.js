@@ -61,6 +61,8 @@ const AppProvider = ({ children }) => {
     showLogin(true);
     setAmount(0);
     setTotal(0);
+    setUser("");
+    setSidebarOpen(false);
   };
 
   const showSideBar = () => {

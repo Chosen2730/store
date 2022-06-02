@@ -79,7 +79,7 @@ form label {
   font-weight: 500;
 }
 .login_input {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.127);
   padding: 1rem;
   border: 2px solid #f2f2f221;
   margin-bottom: 1.5rem;
