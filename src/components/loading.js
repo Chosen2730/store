@@ -3,6 +3,7 @@ const Loading = () => {
   return (
     <div className='loading'>
       <img src={loading} alt='' />
+      <h3>Please hold on while we fetch your products</h3>
     </div>
   );
 };

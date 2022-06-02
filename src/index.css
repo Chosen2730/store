@@ -96,10 +96,12 @@ form label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 .loading img {
   width: 40%;
+  height: 20vh;
+  object-fit: cover;
 }
 nav {
   width: 70%;
@@ -166,9 +168,6 @@ nav div {
   color: #b7cadb;
   cursor: pointer;
 }
-.dash_items:hover {
-  color: #fff;
-}
 .item_cont {
   display: grid;
   grid-template-columns: 0.1fr 0.9fr;
@@ -197,6 +196,7 @@ nav div {
 .product_header {
   background: #fff;
   padding: 1rem;
+  text-align: center;
 }
 .products_container {
   display: grid;

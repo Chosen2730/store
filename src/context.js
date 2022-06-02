@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 const url = "https://fakestoreapi.com/products";
 const AppContext = createContext();
 const AppProvider = ({ children }) => {
-  const [login, showLogin] = useState(true);
+  const [login, showLogin] = useState(false);
   const [loading, setLoading] = useState(false);
   const [home, setHome] = useState(false);
   const [user, setUser] = useState("");
@@ -11,21 +11,29 @@ const AppProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [amount, setAmount] = useState(0);
   const [total, setTotal] = useState(0);
-  const [qty, setQty] = useState(0);
+  const [list, setList] = useState([]);
 
   const getProducts = async () => {
     setLoading(true);
     try {
-      setLoading(false);
       const response = await fetch(url);
       const data = await response.json();
       setProducts(data);
-    } catch (error) {
+      setList(data);
       setLoading(false);
+    } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
-
+  const allCategories = [
+    "all",
+    ...new Set(
+      list.map((item) => {
+        return item.category;
+      })
+    ),
+  ];
   useEffect(() => {
     getProducts();
   }, []);
@@ -71,29 +79,22 @@ const AppProvider = ({ children }) => {
   const closeSidebar = () => {
     setSidebarOpen(false);
   };
-  const checkQty = (n) => {
-    if (n < 0) {
-      return 0;
-    } else return n;
-  };
-  const addQty = (id) => {
-    // const temp = products.map((item) => {
-    //   let { rate } = item.rating;
-    //   rate = 0;
-    //   if (item.id === id) {
-    //     return setQty(checkQty(rate + 1));
-    //   }
-    //   return item;
-    // });
-  };
-  const redQty = (id) => {
-    // setQty(checkQty(qty - 1));
-  };
+
   const addProduct = (id, price) => {
     setAmount(amount + 1);
-    const newP = products.filter((item) => item.id !== id);
-    setProducts(newP);
-    setTotal(total + price);
+    let newTotal = +(total + price).toFixed(2);
+    setTotal(newTotal);
+  };
+
+  const getCategory = (e) => {
+    const id = e.target.dataset.id;
+    if (id === "all") {
+      setProducts(list);
+      return;
+    }
+
+    const newProduct = list.filter((item) => item.category === id);
+    setProducts(newProduct);
   };
   return (
     <AppContext.Provider
@@ -115,10 +116,8 @@ const AppProvider = ({ children }) => {
         amount,
         addProduct,
         total,
-        qty,
-        setQty,
-        addQty,
-        redQty,
+        allCategories,
+        getCategory,
       }}
     >
       {children}
