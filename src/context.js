@@ -95,6 +95,7 @@ const AppProvider = ({ children }) => {
 
     const newProduct = list.filter((item) => item.category === id);
     setProducts(newProduct);
+    setSidebarOpen(false);
   };
   return (
     <AppContext.Provider
