@@ -32,7 +32,7 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 2000);
     setHome(true);
     return () => {
       clearTimeout(timeout);
@@ -43,6 +43,8 @@ const AppProvider = ({ children }) => {
     if (user && password) {
       showLogin(false);
       setLoading(true);
+      setUser("");
+      setPassword("");
     }
   };
 
@@ -58,6 +60,8 @@ const AppProvider = ({ children }) => {
   const logout = () => {
     setHome(false);
     showLogin(true);
+    setAmount(0);
+    setTotal(0);
   };
 
   const showSideBar = () => {
