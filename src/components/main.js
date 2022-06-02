@@ -28,7 +28,10 @@ const Main = () => {
                     +
                   </h3>
                 </div> */}
-                <button className='cart_add' onClick={addProduct}>
+                <button
+                  className='cart_add'
+                  onClick={() => addProduct(id, price)}
+                >
                   <MdAddShoppingCart className='cart_icon' />
                   <h5> Add to cart</h5>
                 </button>

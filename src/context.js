@@ -89,15 +89,11 @@ const AppProvider = ({ children }) => {
   const redQty = (id) => {
     // setQty(checkQty(qty - 1));
   };
-  const addProduct = () => {
+  const addProduct = (id, price) => {
     setAmount(amount + 1);
-    const itemTotal = products.reduce((cartTotal, cartItem) => {
-      const { price } = cartItem;
-      const itemPrice = price * amount;
-      cartTotal += itemPrice;
-      return cartTotal;
-    }, 0);
-    setTotal(itemTotal.toFixed(2));
+    const newP = products.filter((item) => item.id !== id);
+    setProducts(newP);
+    setTotal(total + price);
   };
   return (
     <AppContext.Provider
