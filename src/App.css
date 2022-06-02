@@ -1,24 +1,13 @@
-@media (max-width: 560px) {
-  .form {
-    width: 80%;
-    padding: 2rem;
-  }
-  .loading img {
-    width: 100%;
-  }
-}
-
 @media (max-width: 800px) {
   nav {
     width: 100%;
     grid-template-columns: 0.1fr 0.7fr 0.2fr;
     align-items: center;
   }
-
   .main {
     width: 100%;
     margin-left: auto;
-    padding: 15% 3%;
+    padding-top: 15%;
   }
   nav div {
     justify-content: center;
@@ -53,5 +42,22 @@
 
   .show-sidebar {
     transform: translateX(0);
+  }
+
+  .products_container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .form {
+    width: 80%;
+    padding: 2rem;
+  }
+  .loading img {
+    width: 100%;
+  }
+
+  .products_container {
+    grid-template-columns: 1fr;
   }
 }

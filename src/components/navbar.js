@@ -2,7 +2,7 @@ import { useGlobalContext } from "./../context";
 import logo from "./../images/shopping.png";
 import { MdAddShoppingCart, MdOutlineMenu } from "react-icons/md";
 const Navbar = () => {
-  const { showSideBar } = useGlobalContext();
+  const { showSideBar, amount } = useGlobalContext();
   return (
     <nav>
       <div className='menu_icon' onClick={showSideBar}>
@@ -13,7 +13,7 @@ const Navbar = () => {
       </div>
       <div className='cart_cont'>
         <MdAddShoppingCart />
-        <h5 className='cart_amount'>2</h5>
+        <h5 className='cart_amount'>{amount}</h5>
       </div>
     </nav>
   );

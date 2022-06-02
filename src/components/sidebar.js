@@ -9,7 +9,8 @@ import {
 import { GrLogout } from "react-icons/gr";
 
 const Sidebar = () => {
-  const { logout, user, sidebarOpen, closeSidebar } = useGlobalContext();
+  const { logout, user, sidebarOpen, closeSidebar, amount, total } =
+    useGlobalContext();
   return (
     <aside className={sidebarOpen ? `aside show-sidebar` : `aside`}>
       <div className='close_sidebar' onClick={closeSidebar}>
@@ -31,8 +32,8 @@ const Sidebar = () => {
           <MdAddShoppingCart className='dash_icons' /> <h4>Cart</h4>
         </div>
         <div className='cart_items_cont'>
-          <h5>Total Items: </h5>
-          <h5>Price: </h5>
+          <h5>Total Items: {amount} </h5>
+          <h5>Total Price: ${total}</h5>
         </div>
       </div>
       <div className='dash_items' onClick={logout}>
