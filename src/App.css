@@ -57,6 +57,9 @@
     width: 100%;
   }
 
+  .logo {
+    width: 40%;
+  }
   .products_container {
     grid-template-columns: 1fr;
   }

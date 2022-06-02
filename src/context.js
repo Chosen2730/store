@@ -43,7 +43,6 @@ const AppProvider = ({ children }) => {
     if (user && password) {
       showLogin(false);
       setLoading(true);
-      setUser("");
       setPassword("");
     }
   };
