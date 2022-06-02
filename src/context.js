@@ -6,6 +6,7 @@ const AppProvider = ({ children }) => {
   const [home, setHome] = useState(false);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -32,6 +33,18 @@ const AppProvider = ({ children }) => {
     const value = e.target.value;
     setUser(value);
   };
+
+  const logout = () => {
+    setHome(false);
+    showLogin(true);
+  };
+
+  const showSideBar = () => {
+    setSidebarOpen(true);
+  };
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
   return (
     <AppContext.Provider
       value={{
@@ -44,6 +57,10 @@ const AppProvider = ({ children }) => {
         loading,
         home,
         handleSubmit,
+        logout,
+        showSideBar,
+        sidebarOpen,
+        closeSidebar,
       }}
     >
       {children}

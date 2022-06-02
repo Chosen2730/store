@@ -1,10 +1,12 @@
 import { useGlobalContext } from "../context";
+import logo from "./../images/shopping.png";
 const Login = () => {
   const { handleSubmit, password, user, handleChange, handlePassword } =
     useGlobalContext();
   return (
     <section id='login'>
       <main className='form'>
+        <img className='logo' src={logo} alt='logo' />
         <h1 className='login_header'>Login Here</h1>
         <form action='' onSubmit={handleSubmit}>
           <label htmlFor='name'>Username</label>

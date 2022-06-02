@@ -1,9 +1,19 @@
+import { useGlobalContext } from "./../context";
+import logo from "./../images/shopping.png";
+import { MdAddShoppingCart, MdOutlineMenu } from "react-icons/md";
 const Navbar = () => {
+  const { showSideBar } = useGlobalContext();
   return (
     <nav>
-      <div className='left'>
-        {/* <img src='' alt='' /> */}
-        <h1>Welcome to our store. There is nothing to display for now.</h1>
+      <div className='menu_icon' onClick={showSideBar}>
+        <MdOutlineMenu />
+      </div>
+      <div className='logo_cont'>
+        <img className='logo' src={logo} alt='logo' />
+      </div>
+      <div className='cart_cont'>
+        <MdAddShoppingCart />
+        <h5 className='cart_amount'>2</h5>
       </div>
     </nav>
   );

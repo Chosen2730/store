@@ -34,11 +34,15 @@ h5 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   color: #fff;
+}
+.logo {
+  width: 20%;
 }
 .login_header,
 .form h5 {
@@ -52,6 +56,7 @@ h5 {
   border-radius: 5px;
   width: 50%;
   padding: 2%;
+  margin: 2rem 0;
 }
 form label,
 input {
@@ -88,7 +93,90 @@ form label {
 .loading img {
   width: 40%;
 }
-.left {
+nav {
+  width: 70%;
+  position: fixed;
+  right: 0;
+  background: #f6fbf4;
+  box-shadow: 0 1px 10px #cdc2ae;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 0.7fr 0.2fr;
+  align-items: center;
+}
+nav div {
+  justify-content: center;
   text-align: center;
-  padding: 5% 2%;
+}
+.menu_icon,
+.close_sidebar {
+  display: none;
+}
+.aside {
+  width: 30%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0000ff;
+  height: 100vh;
+}
+.cart_cont {
+  font-size: 1.5rem;
+  color: #0000ff;
+  position: relative;
+}
+.cart_amount {
+  position: absolute;
+  background: #0000ff;
+  color: #fff;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 5px;
+  width: 5px;
+  border-radius: 100%;
+  right: 30%;
+  top: -30%;
+}
+.user_profile {
+  text-align: center;
+}
+.user_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.user_name {
+  text-transform: capitalize;
+  color: #fff;
+}
+.dash_items {
+  margin: 1rem 2rem;
+  color: #b7cadb;
+  cursor: pointer;
+}
+.dash_items:hover {
+  color: #fff;
+}
+.item_cont {
+  display: grid;
+  grid-template-columns: 0.1fr 0.9fr;
+  align-items: center;
+}
+.dash_icons {
+  font-size: 1.2rem;
+}
+.cart_items_cont {
+  margin-left: 10%;
+}
+.cart_items_cont h5 {
+  margin: 1rem 0;
+}
+.main {
+  width: 70%;
+  margin-left: auto;
+  padding-top: 8%;
 }
