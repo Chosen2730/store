@@ -13,7 +13,7 @@ const SingleProduct = ({ title, image, id, description, price }) => {
         <h3 className='title'>{title}</h3>
         <p>{desc}..</p>
         <h3 className='price'>${price}</h3>
-        <button className='cart_add' onClick={() => addProduct(id, price)}>
+        <button className='cart_add' onClick={() => addProduct(price)}>
           <MdAddShoppingCart className='cart_icon' />
           <h5> Add to cart</h5>
         </button>
