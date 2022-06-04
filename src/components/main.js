@@ -2,7 +2,7 @@ import { useGlobalContext } from "./../context";
 import SingleProduct from "./single";
 import Loading from "./loading";
 const Main = () => {
-  const { products } = useGlobalContext();
+  const { products, setNum } = useGlobalContext();
   return (
     <section className='main'>
       <main id='main_id'>
@@ -10,7 +10,7 @@ const Main = () => {
         <div className='products_container'>
           {products.map((item) => {
             const { id } = item;
-            return <SingleProduct key={id} {...item} />;
+            return <SingleProduct key={id} setNum={setNum} {...item} />;
           })}
         </div>
       </main>

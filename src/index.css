@@ -252,6 +252,14 @@ nav div {
   align-items: center;
   transition: all 0.5s ease-in-out;
 }
+.cart_clear {
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
 .cart_add:hover {
   background-color: #04043f;
 }
@@ -274,8 +282,14 @@ p {
 }
 .qty {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  margin: 1rem 0;
 }
 .qty_item {
   background: #dddddd;
+}
+.qty button {
+  border: none;
+  padding: 1rem;
 }

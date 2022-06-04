@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 const url = "https://fakestoreapi.com/products";
 const AppContext = createContext();
 const AppProvider = ({ children }) => {
-  const [login, showLogin] = useState(true);
+  const [login, showLogin] = useState(false);
   const [loading, setLoading] = useState(false);
   const [home, setHome] = useState(false);
   const [user, setUser] = useState("");
@@ -12,6 +12,7 @@ const AppProvider = ({ children }) => {
   const [amount, setAmount] = useState(0);
   const [total, setTotal] = useState(0);
   const [list, setList] = useState([]);
+  const [cartItem, setCartItem] = useState([]);
 
   const getProducts = async () => {
     setLoading(true);
@@ -55,6 +56,25 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    let { total, amount } = cartItem.reduce(
+      (total, item) => {
+        const { num, price } = item;
+        const itemPrice = num * price;
+        total.total += itemPrice;
+        total.amount += num;
+        console.log(total, num);
+        return total;
+      },
+      {
+        total: 0,
+        amount: 0,
+      }
+    );
+    total = +total.toFixed(2);
+    setTotal(total);
+    setAmount(amount);
+  }, [cartItem]);
   const handlePassword = (e) => {
     const value = e.target.value;
     setPassword(value);
@@ -80,10 +100,17 @@ const AppProvider = ({ children }) => {
     setSidebarOpen(false);
   };
 
-  const addProduct = (price) => {
-    setAmount(amount + 1);
+  const addProduct = (id, price, num, setNum) => {
     let newTotal = +(total + price).toFixed(2);
     setTotal(newTotal);
+    products.map((item) => {
+      if (item.id == id) {
+        const { description, id, title, price } = item;
+        const newCartItem = { description, title, id, price, num };
+        setCartItem([...cartItem, newCartItem]);
+      }
+    });
+    setNum(0);
   };
 
   const getCategory = (e) => {
@@ -97,6 +124,7 @@ const AppProvider = ({ children }) => {
     setProducts(newProduct);
     setSidebarOpen(false);
   };
+
   return (
     <AppContext.Provider
       value={{
@@ -119,6 +147,7 @@ const AppProvider = ({ children }) => {
         total,
         allCategories,
         getCategory,
+        setCartItem,
       }}
     >
       {children}

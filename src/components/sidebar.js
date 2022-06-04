@@ -19,6 +19,7 @@ const Sidebar = () => {
     total,
     allCategories,
     getCategory,
+    setCartItem,
   } = useGlobalContext();
   return (
     <aside className={sidebarOpen ? `aside show-sidebar` : `aside`}>
@@ -45,6 +46,9 @@ const Sidebar = () => {
         <div className='cart_items_cont'>
           <h5>Total Items: {amount} </h5>
           <h5>Total Price: ${total}</h5>
+          <button onClick={() => setCartItem([])} className='cart_clear'>
+            Clear Cart
+          </button>
         </div>
       </div>
       <hr />
