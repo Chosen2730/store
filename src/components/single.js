@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useGlobalContext } from "./../context";
 import { MdAddShoppingCart } from "react-icons/md";
 
 const SingleProduct = ({ title, image, id, description, price }) => {
   const [num, setNum] = useState(1);
+  const [isAdded, setIsAdded] = useState(false);
   const { addProduct } = useGlobalContext();
   const desc = description.slice(0, 55);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsAdded(false);
+    }, 3000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [isAdded]);
   const checkNum = (n) => {
     if (n < 0) {
       return 0;
@@ -36,10 +45,13 @@ const SingleProduct = ({ title, image, id, description, price }) => {
         </div>
         <button
           className='cart_add'
-          onClick={() => addProduct(id, price, num, setNum)}
+          onClick={() => {
+            addProduct(id, price, num, setNum);
+            setIsAdded(true);
+          }}
         >
           <MdAddShoppingCart className='cart_icon' />
-          <h5> Add to cart</h5>
+          <h5>{isAdded ? "Item added to the cart" : "Add to cart"} </h5>
         </button>
       </div>
     </>
