@@ -80,7 +80,7 @@ const AppProvider = ({ children }) => {
     setSidebarOpen(false);
   };
 
-  const addProduct = (id, price) => {
+  const addProduct = (price) => {
     setAmount(amount + 1);
     let newTotal = +(total + price).toFixed(2);
     setTotal(newTotal);

@@ -7,7 +7,9 @@ const SingleProduct = ({ title, image, id, description, price }) => {
   return (
     <>
       <div key={id} className='product'>
-        <img className='product_img' src={image} alt='' />
+        <div className='product_img_cont'>
+          <img className='product_img' src={image} alt='' />
+        </div>
         <h3 className='title'>{title}</h3>
         <p>{desc}..</p>
         <h3 className='price'>${price}</h3>

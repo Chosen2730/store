@@ -5,9 +5,9 @@ const Login = () => {
     useGlobalContext();
   return (
     <section id='login'>
+      <img className='logo' src={logo} alt='logo' />
       <main className='form'>
-        <img className='logo' src={logo} alt='logo' />
-        <h1 className='login_header'>Login Here</h1>
+        <h1 className='login_header'>Welcome, please Login! </h1>
         <form action='' onSubmit={handleSubmit}>
           <label htmlFor='name'>Username</label>
           <input

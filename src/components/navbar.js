@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className='logo_cont'>
         <img className='logo' src={logo} alt='logo' />
       </div>
-      <div className='cart_cont'>
+      <div className='cart_cont' onClick={showSideBar}>
         <MdAddShoppingCart />
         <h5 className='cart_amount'>{amount}</h5>
       </div>

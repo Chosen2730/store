@@ -45,9 +45,11 @@ h5 {
   flex-direction: column;
   align-items: center;
   color: #fff;
+  padding: 3rem;
 }
 .logo {
   width: 20%;
+  margin: 0 auto;
 }
 .login_header,
 .form h5 {
@@ -60,7 +62,7 @@ h5 {
   background: #01012e;
   border-radius: 5px;
   width: 50%;
-  padding: 2%;
+  padding: 3%;
   margin: 4rem 0;
 }
 .form .logo {
@@ -93,9 +95,12 @@ form label {
 }
 .loading {
   display: flex;
+  width: 80%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  margin: 0 auto;
   height: 80vh;
 }
 .loading img {
@@ -130,11 +135,13 @@ nav div {
   background: #4700d8;
   padding: 3% 0;
   height: 100vh;
+  overflow-y: scroll;
 }
 .cart_cont {
   font-size: 1.5rem;
   color: #0000ff;
   position: relative;
+  cursor: pointer;
 }
 .cart_amount {
   position: absolute;
@@ -153,6 +160,7 @@ nav div {
 }
 .user_profile {
   text-align: center;
+  margin: 2rem 0;
 }
 .user_img {
   width: 150px;
@@ -167,12 +175,22 @@ nav div {
 .dash_items {
   margin: 1rem 2rem;
   color: #b7cadb;
-  cursor: pointer;
 }
 .item_cont {
   display: grid;
   grid-template-columns: 0.1fr 0.9fr;
   align-items: center;
+}
+.cart_items_cont h5,
+.logout_icon {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  padding: 5px 0;
+  transition: all 0.5s ease-in-out;
+}
+.cat h5:hover,
+.logout_icon:hover {
+  color: #fff;
 }
 .dash_icons {
   font-size: 1.2rem;
@@ -201,7 +219,7 @@ nav div {
 }
 .products_container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin: 2rem 0;
 }
@@ -211,9 +229,16 @@ nav div {
   background-color: #fff;
   display: grid;
 }
-.product_img {
+.product_img_cont {
   width: 100%;
   height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.product_img {
+  width: 40%;
   object-fit: cover;
 }
 .cart_add {
