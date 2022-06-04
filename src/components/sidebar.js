@@ -46,7 +46,12 @@ const Sidebar = () => {
         <div className='cart_items_cont'>
           <h5>Total Items: {amount} </h5>
           <h5>Total Price: ${total}</h5>
-          <button onClick={() => setCartItem([])} className='cart_clear'>
+          <button
+            onClick={() => {
+              setCartItem([]);
+            }}
+            className='cart_clear'
+          >
             Clear Cart
           </button>
         </div>

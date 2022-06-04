@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 const url = "https://fakestoreapi.com/products";
 const AppContext = createContext();
 const AppProvider = ({ children }) => {
-  const [login, showLogin] = useState(false);
+  const [login, showLogin] = useState(true);
   const [loading, setLoading] = useState(false);
   const [home, setHome] = useState(false);
   const [user, setUser] = useState("");
@@ -63,7 +63,6 @@ const AppProvider = ({ children }) => {
         const itemPrice = num * price;
         total.total += itemPrice;
         total.amount += num;
-        console.log(total, num);
         return total;
       },
       {
@@ -111,6 +110,7 @@ const AppProvider = ({ children }) => {
       }
     });
     setNum(0);
+    setSidebarOpen(true);
   };
 
   const getCategory = (e) => {
