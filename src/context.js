@@ -110,7 +110,6 @@ const AppProvider = ({ children }) => {
       }
     });
     setNum(0);
-    setSidebarOpen(true);
   };
 
   const getCategory = (e) => {
