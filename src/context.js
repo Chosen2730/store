@@ -1,10 +1,18 @@
+import "./App.css";
+import Login from "./components/login";
+import Loading from "./components/loading";
+import Home from "./components/home";
+import Error from "./components/error";
+import Main from "./components/main";
+import Cart from "./components/cart";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { createContext, useContext, useState, useEffect } from "react";
+
 const url = "https://fakestoreapi.com/products";
 const AppContext = createContext();
+
 const AppProvider = ({ children }) => {
-  const [login, showLogin] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [home, setHome] = useState(false);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -13,6 +21,7 @@ const AppProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
   const [list, setList] = useState([]);
   const [cartItem, setCartItem] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const getProducts = async () => {
     setLoading(true);
@@ -38,23 +47,6 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     getProducts();
   }, []);
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-    setHome(true);
-    return () => {
-      clearTimeout(timeout);
-    };
-  });
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (user && password) {
-      showLogin(false);
-      setLoading(true);
-      setPassword("");
-    }
-  };
 
   useEffect(() => {
     let { total, amount } = cartItem.reduce(
@@ -74,18 +66,18 @@ const AppProvider = ({ children }) => {
     setTotal(total);
     setAmount(amount);
   }, [cartItem]);
+
   const handlePassword = (e) => {
     const value = e.target.value;
     setPassword(value);
   };
+
   const handleChange = (e) => {
     const value = e.target.value;
     setUser(value);
   };
 
   const logout = () => {
-    setHome(false);
-    showLogin(true);
     setAmount(0);
     setTotal(0);
     setUser("");
@@ -118,10 +110,23 @@ const AppProvider = ({ children }) => {
       setProducts(list);
       return;
     }
-
     const newProduct = list.filter((item) => item.category === id);
     setProducts(newProduct);
     setSidebarOpen(false);
+  };
+
+  const inputHandler = (e) => {
+    setSearchTerm(e.target.value.toLowerCase());
+    const filteredProducts = list.filter((item) => {
+      const title = item.title.toLowerCase();
+      return title.includes(searchTerm);
+    });
+    setProducts(filteredProducts);
+  };
+
+  const deleteItem = (id) => {
+    const newCart = cartItem.filter((item) => item.id !== id);
+    setCartItem(newCart);
   };
 
   return (
@@ -132,10 +137,8 @@ const AppProvider = ({ children }) => {
         handleChange,
         handlePassword,
         password,
-        login,
         loading,
-        home,
-        handleSubmit,
+        setPassword,
         logout,
         showSideBar,
         sidebarOpen,
@@ -147,9 +150,24 @@ const AppProvider = ({ children }) => {
         allCategories,
         getCategory,
         setCartItem,
+        inputHandler,
+        searchTerm,
+        cartItem,
+        deleteItem,
       }}
     >
       {children}
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='loading' element={<Loading />} />
+          <Route path='home' element={<Home />}>
+            <Route index element={<Main />} />
+            <Route path='cart' element={<Cart />} />
+          </Route>
+          <Route path='*' element={<Error />} />
+        </Routes>
+      </BrowserRouter>
     </AppContext.Provider>
   );
 };

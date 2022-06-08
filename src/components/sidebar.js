@@ -1,6 +1,7 @@
 import userIMG from "./../images/user.png";
 import { CgProfile } from "react-icons/cg";
 import { useGlobalContext } from "./../context";
+import { Link } from "react-router-dom";
 import {
   MdAddShoppingCart,
   MdOutlineLogout,
@@ -73,10 +74,12 @@ const Sidebar = () => {
       </div>
       <hr />
       <div className='dash_items' onClick={logout}>
-        <div className='item_cont'>
-          <MdOutlineLogout className='dash_icons' />{" "}
-          <h4 className='logout_icon'>Logout</h4>
-        </div>
+        <Link to='/'>
+          <div className='item_cont'>
+            <MdOutlineLogout className='dash_icons' />
+            <h4 className='logout_icon'>Logout</h4>
+          </div>
+        </Link>
       </div>
     </aside>
   );

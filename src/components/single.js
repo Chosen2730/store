@@ -11,7 +11,7 @@ const SingleProduct = ({ title, image, id, description, price }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsAdded(false);
-    }, 3000);
+    }, 1000);
     return () => {
       clearTimeout(timeout);
     };
@@ -30,7 +30,7 @@ const SingleProduct = ({ title, image, id, description, price }) => {
   };
   return (
     <>
-      <div key={id} className='product'>
+      <div className='product'>
         <div className='product_img_cont'>
           <img className='product_img' src={image} alt='' />
         </div>
