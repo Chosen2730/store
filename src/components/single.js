@@ -30,21 +30,21 @@ const SingleProduct = ({ title, image, id, description, price }) => {
   };
   return (
     <>
-      <div className='product'>
+      <div className='product shadow-md'>
         <div className='product_img_cont'>
-          <img className='product_img' src={image} alt='' />
+          <img className='w-full h-40 object-contain' src={image} alt='' />
         </div>
-        <h3 className='title'>{title}</h3>
+        <h3 className='font-bold'>{title}</h3>
         <p>{desc}..</p>
-        <h3 className='price'>${price}</h3>
+        <h3 className='font-bold'>${price}</h3>
         <div className='qty'>
-          <h5>Quantity</h5>
+          <h5>Qty</h5>
           <button onClick={sub}>-</button>
           <button className='price'>{num}</button>
           <button onClick={add}>+</button>
         </div>
         <button
-          className='cart_add'
+          className='bg-gray-900 text-white flex items-center justify-center rounded-md p-3'
           onClick={() => {
             addProduct(id, price, num, setNum);
             setIsAdded(true);

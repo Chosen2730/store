@@ -5,20 +5,17 @@ import { MdAddShoppingCart, MdOutlineMenu } from "react-icons/md";
 const Navbar = () => {
   const { showSideBar, amount } = useGlobalContext();
   return (
-    <nav>
-      <div className='menu_icon' onClick={showSideBar}>
-        <MdOutlineMenu />
-      </div>
-      <div className='logo_cont'>
-        <img className='logo' src={logo} alt='logo' />
-      </div>
-      <div className='product_link'>
+    <nav className='flex justify-between gap-4 p-4 bg-gray-900 text-gray-50 w-full'>
+      <img className='w-20' src={logo} alt='logo' />
+      <div className='font-bold'>
         <Link to='/home'>Products</Link>
       </div>
-      <div className='cart_cont'>
-        <Link to='/home/cart'>
+      <div className=''>
+        <Link to='/home/cart' className='flex'>
           <MdAddShoppingCart />
-          <h5 className='cart_amount'>{amount}</h5>
+          <h5 className='relative bottom-2 bg-white text-black w-4 h-4 rounded-full flex items-center justify-center font-bold'>
+            {amount}
+          </h5>
         </Link>
       </div>
     </nav>

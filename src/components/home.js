@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <section id='home'>
       <Navbar />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Outlet />
     </section>
   );

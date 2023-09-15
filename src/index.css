@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   padding: 0;
   margin: 0;
@@ -71,18 +75,6 @@ h5 {
 .form .logo {
   width: 50%;
 }
-form label,
-input {
-  display: block;
-  margin: 2% 0;
-  width: 100%;
-  padding: 1% 0;
-  border: none;
-  font-size: 1rem;
-}
-form label {
-  font-weight: 500;
-}
 .login_input {
   background-color: rgba(0, 0, 0, 0.127);
   padding: 1rem;
@@ -112,16 +104,8 @@ form label {
   object-fit: cover;
 }
 nav {
-  width: 70%;
   position: fixed;
   z-index: 1000;
-  right: 0;
-  background: #f6fbf4;
-  box-shadow: 0 1px 10px #cdc2ae;
-  padding: 2%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
 }
 .product_link a {
   font-size: 0.85rem;
@@ -221,12 +205,12 @@ nav div {
   width: 90%;
   margin: 0 auto;
 }
-.main {
+/* .main {
   width: 70%;
   margin-left: auto;
   padding-top: 8%;
   background: #eeeeee6e;
-}
+} */
 .featured_header {
   background: #fff;
   padding: 2rem 1rem;
@@ -234,17 +218,7 @@ nav div {
 .search_icon {
   font-size: 2rem;
 }
-.featured input {
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  border: 2px solid #eeeeee;
-}
-.featured {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+
 .product_header {
   text-align: center;
   font-size: 1rem;
