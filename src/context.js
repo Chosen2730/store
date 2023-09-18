@@ -7,6 +7,9 @@ import Main from "./components/main";
 import Cart from "./components/cart";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { createContext, useContext, useState, useEffect } from "react";
+import AdminHome from "./admin/adminHome";
+import AdminMain from "./admin/adminMain";
+import CreateProduct from "./admin/createProduct";
 
 const url = "https://fakestoreapi.com/products";
 const AppContext = createContext();
@@ -164,6 +167,10 @@ const AppProvider = ({ children }) => {
           <Route path='home' element={<Home />}>
             <Route index element={<Main />} />
             <Route path='cart' element={<Cart />} />
+          </Route>
+          <Route path='admin' element={<AdminHome />}>
+            <Route index element={<AdminMain />} />
+            <Route path='create-product' element={<CreateProduct />} />
           </Route>
           <Route path='*' element={<Error />} />
         </Routes>

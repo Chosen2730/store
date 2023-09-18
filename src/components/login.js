@@ -31,22 +31,26 @@ const Login = () => {
   }, [warning]);
   return (
     <section id='login'>
-      <img className='logo' src={logo} alt='logo' />
       <main className='form'>
+        <img className='w-40 mx-auto' src={logo} alt='logo' />
         <h1 className='login_header'>Welcome, please Login! </h1>
         <form action='' onSubmit={handleSubmit}>
-          <label htmlFor='name'>Username</label>
+          <label className='block' htmlFor='name'>
+            Username
+          </label>
           <input
-            className='login_input'
+            className='login_input w-full'
             type='text'
             id='name'
             value={user}
             onChange={handleChange}
             placeholder='Email or Phone'
           />
-          <label htmlFor='password'>Password</label>
+          <label className='block' htmlFor='password'>
+            Password
+          </label>
           <input
-            className='login_input'
+            className='login_input w-full'
             type='password'
             placeholder='Password'
             value={password}
@@ -54,7 +58,11 @@ const Login = () => {
             id='password'
           />
           <p className='warning'>{warning}</p>
-          <input className='submit_login' type='submit' value='Login' />
+          <input
+            className='submit_login w-full rounded-full my-2'
+            type='submit'
+            value='Login'
+          />
           <h5>Forgotten password?</h5>
         </form>
       </main>

@@ -1,11 +1,11 @@
-import Navbar from "./navbar";
 import { Outlet } from "react-router-dom";
-const Home = () => {
+import AdminNavbar from "./adminNav";
+const AdminHome = () => {
   return (
     <section id='home'>
-      <Navbar />
+      <AdminNavbar />
       <Outlet />
     </section>
   );
 };
-export default Home;
+export default AdminHome;
